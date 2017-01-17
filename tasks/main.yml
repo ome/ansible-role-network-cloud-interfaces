@@ -22,7 +22,11 @@
          "/etc/sysconfig/network-scripts/ifcfg-" + item)
          | list | length) == 0
     }}
-  with_items: "{{ network_cloud_interfaces | default(ansible_interfaces) }}"
+  with_items: >
+    {{
+      network_cloud_interfaces | default(ansible_interfaces) |
+      select('search', network_cloud_interface_regex) | list
+    }}
   register: network_cloud_modified
 
 - name: network cloud | disable default routes

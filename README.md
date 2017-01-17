@@ -14,6 +14,8 @@ Role Variables
 
 - `network_cloud_interfaces`: A list of network interfaces to be added, default is to attempt to add all.
   Existing interfaces will not be modified, even if they are in this list.
+- `network_cloud_interface_regex`: A regular expression used to match interfaces to be activated, default `.*`.
+  An example use is on Docker servers where you want to ignore virtual interfaces.
 
 
 Author Information
