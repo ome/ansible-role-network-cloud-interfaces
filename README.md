@@ -18,6 +18,15 @@ Role Variables
   An example use is on Docker servers where you want to ignore virtual interfaces.
 
 
+Example playbook
+----------------
+
+    - hosts: cloud-instance
+      roles:
+      - role: network-cloud-interfaces
+        network_cloud_interface_regex: '^eth.*'
+
+
 Author Information
 ------------------
 
