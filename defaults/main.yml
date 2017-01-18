@@ -1,0 +1,4 @@
+---
+# defaults file for roles/network-cloud-interfaces
+
+network_cloud_interface_regex: '.*'
