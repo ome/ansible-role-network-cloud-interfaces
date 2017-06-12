@@ -17,11 +17,9 @@
     src: etc-sysconfig-network-scripts-ifcfg.j2
     dest: /etc/sysconfig/network-scripts/ifcfg-{{ item }}
   when: >
-    {{
-      (network_cloud_existing.files | selectattr("path", "equalto",
-         "/etc/sysconfig/network-scripts/ifcfg-" + item)
-         | list | length) == 0
-    }}
+    (network_cloud_existing.files | selectattr("path", "equalto",
+       "/etc/sysconfig/network-scripts/ifcfg-" + item)
+       | list | length) == 0
   with_items: >
     {{
       network_cloud_interfaces | default(ansible_interfaces) |
