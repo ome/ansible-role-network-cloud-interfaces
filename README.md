@@ -1,6 +1,9 @@
 Network Cloud Interfaces
 ========================
 
+[![Build Status](https://travis-ci.org/ome/ansible-role-network-cloud-interfaces.svg)](https://travis-ci.org/ome/ansible-role-network-cloud-interfaces)
+[![Ansible Role](https://img.shields.io/ansible/role/41993.svg)](https://galaxy.ansible.com/ome/network_cloud_interfaces/)
+
 Automatically initialise multiple network interfaces in a virtual machine.
 
 This is intended for use with virtual machines running a standard cloud image where by default only the first NIC is initialised, and you wish to activate additional NICs.
@@ -23,7 +26,7 @@ Example playbook
 
     - hosts: cloud-instance
       roles:
-      - role: network-cloud-interfaces
+      - role: ome.network_cloud_interfaces
         network_cloud_interface_regex: '^eth.*'
 
 
