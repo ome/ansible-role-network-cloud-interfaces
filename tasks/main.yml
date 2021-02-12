@@ -8,14 +8,15 @@
     file_type: file
     paths: /etc/sysconfig/network-scripts
     patterns: "ifcfg-*"
-    recurse: no
+    recurse: false
   register: network_cloud_existing
 
 - name: network cloud | add nics
-  become: yes
+  become: true
   template:
     src: etc-sysconfig-network-scripts-ifcfg.j2
     dest: /etc/sysconfig/network-scripts/ifcfg-{{ item }}
+    mode: 0644
   when: >
     (network_cloud_existing.files | selectattr("path", "equalto",
        "/etc/sysconfig/network-scripts/ifcfg-" + item)
@@ -28,15 +29,15 @@
   register: network_cloud_modified
 
 - name: network cloud | disable default routes
-  become: yes
+  become: true
   copy:
     dest: /etc/dhcp/dhclient-enter-hooks
     src: dhcp-dhclient-enter-hooks
     mode: 0755
 
 - name: network cloud | start new nics
-  become: yes
+  become: true
   command: /usr/sbin/ifup {{ item.item }}
-  when: "{{ item | changed }}"
+  when: item | changed
   with_items:
-  - "{{ network_cloud_modified.results }}"
+    - "{{ network_cloud_modified.results }}"
