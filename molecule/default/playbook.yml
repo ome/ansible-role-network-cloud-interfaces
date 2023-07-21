@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-role-network-cloud-interfaces
+    - role: ome.network_cloud_interfaces
