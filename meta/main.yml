@@ -10,6 +10,7 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+  namespace: ome
   role_name: network_cloud_interfaces
   galaxy_tags: []
 
