@@ -2,7 +2,7 @@ Network Cloud Interfaces
 ========================
 
 [![Actions Status](https://github.com/ome/ansible-role-network-cloud-interfaces/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-network-cloud-interfaces/actions)
-[![Ansible Role](https://img.shields.io/ansible/role/41993.svg)](https://galaxy.ansible.com/ome/network_cloud_interfaces/)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-network_cloud_interfaces-blue.svg)](https://galaxy.ansible.com/ui/standalone/roles/ome/network_cloud_interfaces/)
 
 Automatically initialise multiple network interfaces in a virtual machine.
 
