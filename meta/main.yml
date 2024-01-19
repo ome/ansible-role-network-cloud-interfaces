@@ -5,11 +5,12 @@ galaxy_info:
     Automatically initialise multiple network interfaces in a virtual machine
   company: Open Microscopy Environment
   license: BSD
-  min_ansible_version: 2.1
+# points to the version of the ansible-core package
+  min_ansible_version: 2.13
   platforms:
     - name: EL
       versions:
-        - 7
+        - 9
   namespace: ome
   role_name: network_cloud_interfaces
   galaxy_tags: []
