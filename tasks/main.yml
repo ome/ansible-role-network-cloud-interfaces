@@ -4,7 +4,7 @@
 # full network restart.
 
 - name: network cloud | get existing config
-  find:
+  ansible.builtin.find:
     file_type: file
     paths: /etc/sysconfig/network-scripts
     patterns: "ifcfg-*"
@@ -13,7 +13,7 @@
 
 - name: network cloud | add nics
   become: true
-  template:
+  ansible.builtin.template:
     src: etc-sysconfig-network-scripts-ifcfg.j2
     dest: /etc/sysconfig/network-scripts/ifcfg-{{ item }}
     mode: 0644
@@ -30,14 +30,14 @@
 
 - name: network cloud | disable default routes
   become: true
-  copy:
+  ansible.builtin.copy:
     dest: /etc/dhcp/dhclient-enter-hooks
     src: dhcp-dhclient-enter-hooks
     mode: 0755
 
 - name: network cloud | start new nics
   become: true
-  command: /usr/sbin/ifup {{ item.item }}
+  ansible.builtin.command: /usr/sbin/ifup {{ item.item }}
   when: item is changed
   with_items:
     - "{{ network_cloud_modified.results }}"
